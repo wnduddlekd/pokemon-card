@@ -22,16 +22,16 @@ const CardContainer = styled.section`
 `;
 
 export default function Card({ pokemon }) {
-  const [isImageLoding, setIsImageLoding] = useState(true);
+  const [isImageLoading, setIsImageLoading] = useState(true);
   const nav = useNavigate();
   return (
     <CardContainer onClick={() => nav(`/detail/${pokemon.id}`)}>
-      {isImageLoding ? (
+      {isImageLoading ? (
         <div className="w-[120px] h-[120px] leading-[120px] text-center">
-          loding...
+          loading...
         </div>
       ) : null}
-      <img onLoad={() => setIsImageLoding(false)} src={pokemon.front} />
+      <img onLoad={() => setIsImageLoading(false)} src={pokemon.front} />
       <div>
         {pokemon.name}
         <FavoriteButton pokemonId={pokemon.id} />
