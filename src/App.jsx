@@ -18,15 +18,15 @@ export default function App() {
   }, []);
 
   return (
-    <>
-      <h1>포켓몬 도감</h1>
-      <nav>
+    <div className="flex flex-col gap-[20px]">
+      <h1 className="text-[40px] text-center">포켓몬 도감</h1>
+      <nav className="flex gap-[10px] justify-center">
         <Link to={"/"}>메인</Link>
         <Link to={"/detail/1"}>상세정보</Link>
         <Link to={"/search"}>검색</Link>
         <Link to={"/favorite"}>찜목록</Link>
       </nav>
-      <main>
+      <main className="flex flex-wrap gap-[10px] justify-center">
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/detail/:pokemon" element={<Detail />} />
@@ -34,6 +34,6 @@ export default function App() {
           <Route path="/favorite" element={<Favorite />} />
         </Routes>
       </main>
-    </>
+    </div>
   );
 }
