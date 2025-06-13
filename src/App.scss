@@ -1,0 +1,11 @@
+main {
+  section {
+    background-color: white;
+    transition: 0.2s;
+    &:hover {
+      transform: scale(1.02);
+      transition: 0.2s;
+      filter: drop-shadow(0 0 3px rgb(177, 177, 177));
+    }
+  }
+}
