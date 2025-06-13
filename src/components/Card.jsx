@@ -17,7 +17,7 @@ const CardContainer = styled.section`
   }
 `;
 
-export const Card = ({ pokemon }) => {
+export default function Card({ pokemon }) {
   const nav = useNavigate();
   return (
     <CardContainer onClick={() => nav(`/detail/${pokemon.id}`)}>
@@ -25,4 +25,4 @@ export const Card = ({ pokemon }) => {
       <div>{pokemon.name}</div>
     </CardContainer>
   );
-};
+}

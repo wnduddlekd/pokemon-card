@@ -1,14 +1,16 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import { useSelector } from "react-redux";
-import { Card } from "../components/Card";
+const Card = lazy(() => import("../components/Card.jsx"));
 
 export default function Main() {
   const pokemonData = useSelector((state) => state.pokemon);
   return (
     <>
-      {pokemonData.data.map((el) => (
-        <Card key={el.id} pokemon={el} />
-      ))}
+      <Suspense fallback={<div> 로딩중...</div>}>
+        {pokemonData.data.map((el) => (
+          <Card key={el.id} pokemon={el} />
+        ))}
+      </Suspense>
     </>
   );
 }
