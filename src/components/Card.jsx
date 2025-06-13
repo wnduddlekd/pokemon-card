@@ -10,8 +10,10 @@ const CardContainer = styled.section`
   align-items: center;
   gap: 10px;
   padding-bottom: 10px;
-  border: 1px solid gray;
+  border: 2px solid #514b88;
   border-radius: 10px;
+  border-bottom: 5px solid #514b88;
+  border-right: 5px solid #514b88;
 
   img {
     width: 120px;

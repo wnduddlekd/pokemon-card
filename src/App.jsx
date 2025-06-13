@@ -20,9 +20,14 @@ export default function App() {
   }, []);
 
   return (
-    <div className="flex flex-col gap-[20px]">
-      <h1 className="text-[40px] text-center">포켓몬 도감</h1>
-      <nav className="flex gap-[10px] justify-center">
+    <div className="flex flex-col gap-[30px]">
+      <div>
+        <div className="bg-red-500 h-10 w-screen"></div>
+        <h1 className="	font-[NeoDunggeunmo] bg-neutral-900 text-[40px] text-white text-center p-5">
+          포켓몬 도감
+        </h1>
+      </div>
+      <nav className="font-[NeoDunggeunmo] flex gap-[10px] justify-center border-b">
         <Link to={"/"}>메인</Link>
         <Link to={"/favorite"}>찜목록</Link>
         <input
@@ -30,8 +35,9 @@ export default function App() {
           type="text"
           className="border-b border-[darkgray] px-2"
         />
+        <span>🔍</span>
       </nav>
-      <main className="flex flex-wrap gap-[10px] justify-center">
+      <main className="flex flex-wrap gap-[10px] justify-center  bg-slate-200 p-[30px]">
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/detail/:pokemonId" element={<Detail />} />
