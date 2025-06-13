@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import FavoriteButton from "./FavoriteButton";
+import { useState } from "react";
 
 const CardContainer = styled.section`
   width: 150px;
@@ -21,10 +22,16 @@ const CardContainer = styled.section`
 `;
 
 export default function Card({ pokemon }) {
+  const [isImageLoding, setIsImageLoding] = useState(true);
   const nav = useNavigate();
   return (
     <CardContainer onClick={() => nav(`/detail/${pokemon.id}`)}>
-      <img src={pokemon.front} />
+      {isImageLoding ? (
+        <div className="w-[120px] h-[120px] leading-[120px] text-center">
+          loding...
+        </div>
+      ) : null}
+      <img onLoad={() => setIsImageLoding(false)} src={pokemon.front} />
       <div>
         {pokemon.name}
         <FavoriteButton pokemonId={pokemon.id} />
