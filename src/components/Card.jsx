@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import FavoriteButton from "./FavoriteButton";
-import { useState } from "react";
+import { memo, useState } from "react";
 
 const CardContainer = styled.section`
   width: 150px;
@@ -21,7 +21,7 @@ const CardContainer = styled.section`
   }
 `;
 
-export default function Card({ pokemon }) {
+function Card({ pokemon }) {
   const [isImageLoading, setIsImageLoading] = useState(true);
   const nav = useNavigate();
   return (
@@ -39,3 +39,5 @@ export default function Card({ pokemon }) {
     </CardContainer>
   );
 }
+
+export default memo(Card);
